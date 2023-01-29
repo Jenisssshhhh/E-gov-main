@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% block title %}Download PDF{% endblock title %}
+
+{% block content %} 
+<div class="container">
+    <div class="row">
+            <table class="table table-bordered border-dark">
+                <thead>
+            
+                    <tr class="table-primary">
+                        <th scope="col">Title</th>
+                        <th scope="col">Download</th>
+                    </tr>
+                </thead>
+                {% for post in file%}
+                <tbody>
+                    <tr>
+                        <th scope="row">{{post.title}}</th>
+                        <td><a href="{{post.adminupload.url}}" download="{{post.adminupload.url}}"> Download</a></td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+    </div>
+</div>
+
+    <!-- {% for post in file%}
+    <h2>{{post.title}}</h2>
+    <a href="{{post.adminupload.url}}" download="{{post.adminupload.url}}"> Download</a>
+    {% endfor %} -->
+{% endblock content %}

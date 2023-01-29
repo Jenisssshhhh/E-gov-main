@@ -1,0 +1,67 @@
+{% extends 'news_main.html' %}
+{% block title %}  News {% endblock title %}
+
+{% block content %}
+<main class="container mt-3 mb-5">
+   <div class="container-fluid"> 
+        <div class="row my-3">
+            <div class="col-md-7">
+                <div class="card w-100" style="justify-content: normal; color:black;">
+                    <img src="images/{{first_news.image}}" height="461 px"class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{first_news.title}}</h5>
+                        <hr/>
+                        <a href="/news/detail/{{first_news.id}}" class="btn btn-sm btn-primary">Read More</a>
+                    </div>
+                </div> 
+            </div>
+            
+            <!-- side news -->
+            <div class="col-md-5" style="max-height: 645px; overflow: auto;">
+                {% for news in side_news%}
+                <div class="card w-100" style="justify-content: normal; color:black;">
+                    <div class="row no-gutter">
+                        <div class="col-md-4">
+                            <img src="images/{{news.image}}" class="card-img-top" alt="{{news.image}}" height="100px" width="100px">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="text-center">{{news.title}}</h5>
+                                <hr />
+                                <a href="/news/detail/{{news.id}}" class=" btn btn-sm btn-primary  me-md-2">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <hr/>
+            <!-- side news ends -->
+        </div>
+    </div>
+    <!-- news ends -->
+
+    <!-- Categories begins -->
+            {% for category in three_categories %}
+                <h3 class="border-bottom pb-1">{{category.title}} <a href="/news/category/{{category.id}}" class="float-right btn btn-sm btn-dark">In this Category</a></h3>
+                <div class="container-fluid">
+                    <div class="row my-3">
+                        {% for news in category.news_set.all %}
+                        {% if forloop.counter < 5 %}
+                        <div class="col-md-3">
+                            <div class="card w-100" style="justify-content: normal; color:black;">
+                                <img src="images/{{news.image}}" class="card-img-top" alt="image"  height="190px" width="285px">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="height:70px; width:245px;" >{{news.title}}</h5>
+                                    <hr />
+                                    <a href="/news/detail/{{news.id}}" class="btn btn-sm btn-primary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %} 
+                </div>
+            {% endfor %}      
+    <!-- Categories ends -->
+</main>
+{% endblock content %}

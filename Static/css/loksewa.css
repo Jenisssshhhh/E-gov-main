@@ -1,0 +1,22 @@
+h3{
+	background-color: #0085ad;
+	border: 1pxsolid;
+	padding:10px;
+	color:#fff ;
+}
+p{
+	color: #ff0000;
+	font-size: 20px;
+}
+.group{
+	font-size:20px;
+}
+.group input[type=text],input[type=email],input[type=date],input[type=number],select{
+	height: 25px;
+}
+#button{
+	width:5%;
+	height:40px;
+	background-color:#037ef3;
+	color: #fff;
+}

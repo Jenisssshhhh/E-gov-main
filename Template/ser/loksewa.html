@@ -1,0 +1,277 @@
+{% extends 'main.html' %}
+{% load static%}
+{% block title %}loksewa{% endblock title %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/loksewa.css' %}">
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token%}
+        <fieldset style="color: black;">
+            <h3>User Registration</h3>
+            <p><u> <i>Instructions to fill Online Application Form </i></u> </p>
+            <div class="group">
+                <b>Name(In English)</b>
+                <hr>
+                <label>FirstName:</label>
+                <input type="text" name="firstname">
+                <label>Middle Name:</label>
+                <input type="text" name="middlename">
+                <label>Last Name:</label>
+                <input type="text" name="lastname">
+            </div>
+            <br>
+            <div class="group">
+                <b>Name(In Nepali)</b>
+                <hr>
+                <label>FirstName:</label>
+                <input type="text" name="firstname">
+                <label>Middle Name:</label>
+                <input type="text" name="middlename">
+                <label>Last Name:</label>
+                <input type="text" name="lastname">
+            </div>
+            <br>
+            <div class="group">
+                <b>Date of Birth:</b>
+                <hr>
+                <p font-color="red">Please fill date according to your citizenship.</p>
+                <label> DOB in B.S.</label>
+                <select name="day">
+                    <option name="day">Day</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+                <select name="month">
+                    <option name="month">Month</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+                <select name="year">
+                    <option name="year">Year</option>
+                    <option>2068</option>
+                    <option>2069</option>
+                    <option>2073</option>
+                </select>
+                <label> DOB in A.D.</label>
+                <input type="date" name="date">
+    
+                <label for=gender>Gender:</label>
+                <select name="gender">
+                    <option value="option">Please select one option</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Others</option>
+                </select>
+            </div><br>
+            <div class="group">
+                <b>Father's Name:</b>
+                <hr>
+                <label>First name:</label>
+                <input type="text" name="firstname">
+                <label>Middle Name:</label>
+                <input type="text" name="middlename">
+                <label>Last Name:</label>
+                <input type="text" name="lastname">
+            </div><br>
+            <div class="group">
+                <b>Mother's Name</b>
+                <hr>
+                <label>First name:</label>
+                <input type="text" name="firstname">
+                <label>Middle Name:</label>
+                <input type="text" name="middlename">
+                <label>Last Name:</label>
+                <input type="text" name="lastname">
+            </div><br>
+            <div class="group">
+                <b>Grandfather's Name</b>
+                <hr>
+                <label>First name:</label>
+                <input type="text" name="firstname">
+                <label>Middle Name:</label>
+                <input type="text" name="middlename">
+                <label>Last Name:</label>
+                <input type="text" name="lastname">
+            </div><br>
+            <div class="group">
+                <b>Spouse's Name</b>
+                <hr>
+                <label>First name:</label>
+                <input type="text" name="firstname">
+                <label>Middle Name:</label>
+                <input type="text" name="middlename">
+                <label>Last Name:</label>
+                <input type="text" name="lastname">
+            </div><br>
+            <div class="group">
+                <b>Citizenship</b>
+                <hr>
+                <label> Citizenship No.</label>
+                <input type="number" name="citizenname">
+                <label for=district>Issued District:</label>
+                <select name="district">
+                    <option value="option">Please select one value</option>
+                    <option value="kathmandu">Kathmandu</option>
+                    <option value="bhaktapur">Bhaktapur</option>
+                    <option value="lalitpur">Lalitpur</option>
+                    <option value="others">Others</option>
+                </select>
+                <label>Issued Date</label>
+                <select name="day">
+                    <option name="day">Day</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+                <select name="month">
+                    <option name="month">Month</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+                <select name="year">
+                    <option name="year">Year</option>
+                    <option>2000</option>
+                    <option>2001</option>
+                    <option>2003</option>
+                </select>
+            </div><br>
+            <div class="group">
+                <b>Contact</b>
+                <hr>
+                <label>Email:</label>
+                <input type="email" name="email">
+                <label>Mobile no:</label>
+                <input type="number" name="number">
+            </div><br>
+            <div class="group">
+                <b>Extra Information</b>
+                <hr>
+                <label>Caste</label>
+                <select name="caste">
+                    <option value="please select one">Please select one</option>
+                    <option value="newar">Newar</option>
+                    <option value="chettri">Chettri</option>
+                    <option value="bhramin">Bhramin</option>
+                    <option value="bhote">Bhote</option>
+                </select> &nbsp; &nbsp;
+                <label>Religion</label>
+                <select name="religion">
+                    <option value="please select one">Please select one</option>
+                    <option value="hindu">Hindu</option>
+                    <option value="muslim">Muslim</option>
+                    <option value="buddhist">Buddhist</option>
+                    <option value="christian">Christian</option>
+                </select> &nbsp; &nbsp;
+                <label>Incase of another religion</label>
+                <input type="text" name="religion">
+            </div>
+            <br>
+            <hr>
+            <div class="group">
+                <label>Marital Staus</label>
+                <select>
+                    <option value="please select one menu">Please select one menu</option>
+                    <option value="married">Married</option>
+                    <option value="unmarried">Unmarried</option>
+                    <option value="divorce">Divorce</option>
+                </select>
+            </div>
+            <br>
+            <hr>
+            <div class="group">
+                <label>Employment status</label>
+                <select>
+                    <option>Please select one</option>
+                    <option>Unemployed</option>
+                    <option>Employed</option>
+                    <option>Government job</option>
+                    <option>others</option>
+                </select> &nbsp; &nbsp;
+                <label>Others</label>
+                <input type="text" name="others">
+            </div>
+            <br>
+            <hr>
+            <div class="group">
+                <label>Mother tongue</label>
+                <select>
+                    <option value="please select one">Please select one</option>
+                    <option>Hindi</option>
+                    <option>English</option>
+                    <option>Nepali</option>
+                </select> &nbsp; &nbsp;
+                <label>Physical Disability</label>
+                <select>
+                    <option>Please select one</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select> &nbsp; &nbsp;
+                <label>Any Disorders</label>
+                <input type="text" name="">
+            </div>
+            <br>
+            <hr>
+            <div class="group">
+                <label>Father's Education</label>
+                <select>
+                    <option>Please select one</option>
+                    <option>Uneducated</option>
+                    <option>SLC</option>
+                    <option>Highly educated</option>
+                </select> &nbsp; &nbsp;
+                <label>Mother's Education</label>
+                <select>
+                    <option>Please select one</option>
+                    <option>Uneducated</option>
+                    <option>SLC</option>
+                    <option>Highly educated</option>
+                </select>
+            </div>
+            <br>
+            <hr>
+            <div class="group">
+                <label>Parent's Job</label>
+                <select>
+                    <option>Please select one</option>
+                    <option>Teaching</option>
+                    <option>Business</option>
+                    <option>Agriculture</option>
+                    <option>Government</option>
+                </select> &nbsp; &nbsp;
+                <label>Others</label>
+                <input type="text" name="">
+            </div>
+            <br>
+            <hr>
+            <div class="group">
+                <label>What do you wanna be called?</label>
+                <select>
+                    <option>Please select one</option>
+                    <option>Himalayan</option>
+                    <option>Terai</option>
+                    <option>Mountain</option>
+                </select> &nbsp; &nbsp;
+                <label>Others</label>
+                <input type="text" name="">
+            </div>
+            <br>
+            <hr>
+            <div class="group">
+                <label>Category</label>
+                <select>
+                    <option>Please select one</option>
+                    <option>Adhivasi</option>
+                    <option>Dalit</option>
+                    <option>Madhesi</option>
+                </select> &nbsp; &nbsp;
+                <label>Others</label>
+                <input type="text" name="">
+            </div>
+            <br>
+            <button type="save" id="button" value="Save">Save</button>
+        </fieldset>
+    </form>
+
+{% endblock content %}

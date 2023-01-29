@@ -1,0 +1,26 @@
+{% extends 'news_main.html' %}
+
+{% block content %}
+<main class="container mt-3 mb-5">
+    <h3 class="border-bottom pb-1 my-4">All News</h3>
+    <!-- News Box -->
+    {% for news in all_news %}
+                <div class="card mb-3 w-100" style="justify-content: normal; align-items:normal; color:black;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/images/{{news.image}}" class="img-fluid rounded-start" alt="{{news.image}}" style="max-height: 300px;  min-width:250 px;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{news.title}}</h5>
+                                <p class="card-text" style="padding-left:0;">{{news.detail}}</p>
+                                <p class="card-text"><a href="/news/detail/{{news.id}}" class="btn btn-sm btn-primary">Read Full</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    {% endfor %}
+</main>
+
+    <!-- {% include 'inc/footer.html' %} -->
+{% endblock %}

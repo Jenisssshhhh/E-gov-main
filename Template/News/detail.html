@@ -1,0 +1,88 @@
+{% extends 'news_main.html' %}
+
+{% block content %}
+<main class="container mt-3 mb-5">
+    <div class="row my-3">
+		<!-- Left -->
+		<div class="col-md-8">
+			<div class="card mb-3 w-100" style="justify-content: normal; align-items:normal; color:black;">
+                <img src="/images/{{news.image}}" class="card-img-top" alt="{{news.title}}">
+			  <div class="card-body">
+			    <h5 class="card-title">{{news.title}}</h5>
+			    <hr/>
+			    <p class="card-text" style="padding-left:0; float:none;">{{news.detail}}</p>
+			  </div>
+			  <div class="card-footer">
+			  	In <a href="/news/category/{{news.category.id}}" style="padding-left:0; color:black;">{{news.category.title}}</a>
+			  </div>
+			</div>
+            <!-- comments -->
+            <div class="card my-4 w-100" style="align-items:normal; color:black;">
+                <h6 class="card-header">Add Comment</h6>
+                <div class="card-body">
+                    {% for message in messages %}
+                    <p class="text-success" style="float: none; padding-left:0;">{{message}}</p><br>
+                    {% endfor %}
+                    <form method="post" action="/news/detail/{{news.id}}">
+                        {% csrf_token %}
+                        <div class="form-group row">
+                            <label class="col-md-2">Name<span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <input type="text" name="name" required class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2">Email<span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <input type="temailext" name="email" required class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2">Comment<span class="text-danger">*</span></label>
+                            <div class="col-md-10">
+                                <textarea class="form-control" name="message" required></textarea>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-primary" />
+                    </form>
+                </div>
+            </div>
+            <!-- Previous Comments -->
+            <div class="card my-4 w-100" style="justify-content: normal; align-items:normal; color:black;">
+                <h6 class="card-header">Comments</h6>
+                <div class="card-body">
+                    {% for comment in comments %}
+                    <blockquote class="blockquote text-right">
+                        <p class="mb-0" style="float: left; padding-left:0;">{{comment.comment}}</p>
+                        <footer class="blockquote-footer">{{comment.name}}<br><cite title="Source Title">{{comment.email}}</cite>
+                        </footer>
+                    </blockquote>
+                    <hr />
+                    {% endfor %}
+                </div>
+            </div>
+            </div>
+            
+
+
+            <!-- related news -->
+                    <div class="col-md-4">
+                        <h3 class="mb-3 border-bottom pb-1" style="color: black;">From this Category</h3>
+                        <!-- Category Box -->
+                        {% for news in related_news %}
+                        <div class="card mb-3 shadow w-100" style="justify-content:normal; color:black;">
+                            <img src="/images/{{news.image}}" class="card-img-top" alt="{{news.title}}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{news.title}}</h5>
+                                <hr />
+                                <p class="card-text"><a href="/news/detail/{{news.id}}" class="btn btn-sm btn-primary">Read Full</a></p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+        </div>
+    </div>
+
+
+</main>
+{% endblock content %}

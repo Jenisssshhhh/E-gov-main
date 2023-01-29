@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% block title %}Gallery{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center" style="color: black;">Gallery</h2>
+            {% for img in gall %}
+            <div class="col-md-4">
+                <div class="card mb-3 shadow w-100" style="justify-content: normal; align-items:normal; color:black;">
+                   <a href=""><img src="/images/{{img.image}}" class="card-img-top" alt="{{cat.title}}" height="250px" width="285px"></a> 
+                    <div class="card-body">
+                        <h5 class="card-title" style="height: 70px; " >{{img.title}}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content%}

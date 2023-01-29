@@ -1,0 +1,17 @@
+.navbar-light .navbar-nav .nav-link {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16pt;
+    margin-right: 5px;
+
+}
+
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: white;
+    /* background-color: #1f3158; */
+    margin-left: 25px;
+}
